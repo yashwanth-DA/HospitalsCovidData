@@ -1,0 +1,24 @@
+{
+	"name": "tr_blob_storage",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pl_ingest_population_data",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/population/blobs/tps",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/6eeb66fb-7a72-49dd-8fab-177a7aee3cf9/resourceGroups/rg-yashwanth/providers/Microsoft.Storage/storageAccounts/blobyash1",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}

@@ -1,0 +1,28 @@
+{
+	"name": "ds_source_population_by_age_tsv",
+	"properties": {
+		"description": "source tsv file from blob",
+		"linkedServiceName": {
+			"referenceName": "ls_blobyash1",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "copy_tsv"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "tps00010.tsv",
+				"container": "population"
+			},
+			"columnDelimiter": "\t",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

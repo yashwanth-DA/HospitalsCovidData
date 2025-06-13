@@ -1,0 +1,30 @@
+{
+	"name": "ds_http_csv_url_metadata",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adlsgen2yash",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "github_ecdc_file_list.json",
+				"fileSystem": "metafiles"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"sourceRelativeURL": {
+					"type": "string"
+				},
+				"sinkFileName": {
+					"type": "string"
+				}
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
