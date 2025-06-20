@@ -11,8 +11,8 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": "country_lookup.csv",
-				"folderPath": "ecdc",
-				"fileSystem": "raw"
+				"folderPath": "countrylookup",
+				"fileSystem": "lookup"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
