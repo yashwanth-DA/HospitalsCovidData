@@ -99,7 +99,7 @@
 				"     ignoreNoFilesFound: false,",
 				"     format: 'delimited',",
 				"     fileSystem: 'raw',",
-				"     folderPath: 'ecdc',",
+				"     folderPath: 'ecdc/hospital_admissions',",
 				"     fileName: 'hospital_admissions.csv',",
 				"     columnDelimiter: ',',",
 				"     escapeChar: '\\\\',",
