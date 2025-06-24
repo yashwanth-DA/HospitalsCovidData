@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf-yashadi"
+		},
+		"ls_adlsgen2yash_accountKey": {
+			"value": ""
+		},
+		"ls_azuresql_password": {
+			"value": ""
+		},
+		"ls_blobyash1_connectionString": {
+			"value": ""
+		},
+		"ls_databricks_yashadi1_accessToken": {
+			"value": ""
+		},
+		"ls_adlsgen2yash_properties_typeProperties_url": {
+			"value": "https://gen2yashadi.dfs.core.windows.net/"
+		},
+		"ls_azuresql_properties_typeProperties_server": {
+			"value": "server-for-database-yashadi.database.windows.net"
+		},
+		"ls_azuresql_properties_typeProperties_database": {
+			"value": "database-yashadi"
+		},
+		"ls_azuresql_properties_typeProperties_userName": {
+			"value": "sqladminuser"
+		},
+		"ls_databricks_yashadi1_properties_typeProperties_existingClusterId": {
+			"value": "0623-155030-a2a64hal"
+		},
+		"ls_http_opendata_ecdc_europe_eu_properties_typeProperties_url": {
+			"value": "@{linkedService().sourceBaseURL}"
+		},
+		"tr_blob_tr_properties_typeProperties_scope": {
+			"value": "/subscriptions/10af6404-78cd-40ba-8efa-f89b8acd1467/resourceGroups/rg-yashadi/providers/Microsoft.Storage/storageAccounts/storageyashadi"
+		}
+	}
+}

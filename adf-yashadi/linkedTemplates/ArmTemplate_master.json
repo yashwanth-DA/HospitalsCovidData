@@ -1,0 +1,139 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adf-yashadi"
+		},
+		"ls_adlsgen2yash_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_adlsgen2yash'"
+		},
+		"ls_azuresql_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ls_azuresql'"
+		},
+		"ls_blobyash1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_blobyash1'"
+		},
+		"ls_databricks_yashadi1_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'ls_databricks_yashadi1'"
+		},
+		"ls_adlsgen2yash_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://gen2yashadi.dfs.core.windows.net/"
+		},
+		"ls_azuresql_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "server-for-database-yashadi.database.windows.net"
+		},
+		"ls_azuresql_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "database-yashadi"
+		},
+		"ls_azuresql_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sqladminuser"
+		},
+		"ls_databricks_yashadi1_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "0623-155030-a2a64hal"
+		},
+		"ls_http_opendata_ecdc_europe_eu_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "@{linkedService().sourceBaseURL}"
+		},
+		"tr_blob_tr_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/10af6404-78cd-40ba-8efa-f89b8acd1467/resourceGroups/rg-yashadi/providers/Microsoft.Storage/storageAccounts/storageyashadi"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adf-yashadi_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ls_adlsgen2yash_accountKey": {
+						"value": "[parameters('ls_adlsgen2yash_accountKey')]"
+					},
+					"ls_azuresql_password": {
+						"value": "[parameters('ls_azuresql_password')]"
+					},
+					"ls_blobyash1_connectionString": {
+						"value": "[parameters('ls_blobyash1_connectionString')]"
+					},
+					"ls_databricks_yashadi1_accessToken": {
+						"value": "[parameters('ls_databricks_yashadi1_accessToken')]"
+					},
+					"ls_adlsgen2yash_properties_typeProperties_url": {
+						"value": "[parameters('ls_adlsgen2yash_properties_typeProperties_url')]"
+					},
+					"ls_azuresql_properties_typeProperties_server": {
+						"value": "[parameters('ls_azuresql_properties_typeProperties_server')]"
+					},
+					"ls_azuresql_properties_typeProperties_database": {
+						"value": "[parameters('ls_azuresql_properties_typeProperties_database')]"
+					},
+					"ls_azuresql_properties_typeProperties_userName": {
+						"value": "[parameters('ls_azuresql_properties_typeProperties_userName')]"
+					},
+					"ls_databricks_yashadi1_properties_typeProperties_existingClusterId": {
+						"value": "[parameters('ls_databricks_yashadi1_properties_typeProperties_existingClusterId')]"
+					},
+					"ls_http_opendata_ecdc_europe_eu_properties_typeProperties_url": {
+						"value": "[parameters('ls_http_opendata_ecdc_europe_eu_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "adf-yashadi_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"tr_blob_tr_properties_typeProperties_scope": {
+						"value": "[parameters('tr_blob_tr_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adf-yashadi_ArmTemplate_0')]"
+			]
+		}
+	]
+}
