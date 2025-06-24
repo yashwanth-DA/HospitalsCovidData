@@ -182,6 +182,9 @@
 			}
 		],
 		"concurrency": 1,
+		"folder": {
+			"name": "ingest_coviddata"
+		},
 		"annotations": [],
 		"lastPublishTime": "2025-06-12T19:23:59Z"
 	},

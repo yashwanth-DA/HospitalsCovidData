@@ -5,6 +5,9 @@
 			"referenceName": "ls_adlsgen2yash",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "lookupdatasets"
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {

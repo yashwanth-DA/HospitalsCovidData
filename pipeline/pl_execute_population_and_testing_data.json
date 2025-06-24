@@ -1,0 +1,51 @@
+{
+	"name": "pl_execute_population_and_testing_data",
+	"properties": {
+		"activities": [
+			{
+				"name": "ingest population pl",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pl_ingest_population_data",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "process population and testing pl",
+				"description": "",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "ingest population pl",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pl_transform_testing_and_population",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"folder": {
+			"name": "Execute pipelines"
+		},
+		"annotations": []
+	}
+}
