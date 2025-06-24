@@ -27,6 +27,9 @@
 				}
 			}
 		],
+		"folder": {
+			"name": "process_coviddata"
+		},
 		"annotations": [],
 		"lastPublishTime": "2025-06-13T20:16:28Z"
 	},

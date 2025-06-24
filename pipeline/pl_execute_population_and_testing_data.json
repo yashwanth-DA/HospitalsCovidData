@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Execute Pipeline1",
+				"name": "ingest population pl",
 				"type": "ExecutePipeline",
 				"dependsOn": [],
 				"policy": {
@@ -19,11 +19,12 @@
 				}
 			},
 			{
-				"name": "Execute Pipeline2",
+				"name": "process population and testing pl",
+				"description": "",
 				"type": "ExecutePipeline",
 				"dependsOn": [
 					{
-						"activity": "Execute Pipeline1",
+						"activity": "ingest population pl",
 						"dependencyConditions": [
 							"Succeeded"
 						]

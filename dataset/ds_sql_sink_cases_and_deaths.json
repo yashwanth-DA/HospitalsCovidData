@@ -5,6 +5,9 @@
 			"referenceName": "ls_azuresql",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "sink_sql_datasets"
+		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [
