@@ -249,7 +249,17 @@
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> sinkDailyData"
+				"     skipDuplicateMapOutputs: true,",
+				"     mapColumn(",
+				"          country,",
+				"          country_code_2_digit,",
+				"          country_code_3_digit,",
+				"          population,",
+				"          reported_date,",
+				"          hospital_occupancy_count,",
+				"          ICU_occupancy_count,",
+				"          source",
+				"     )) ~> sinkDailyData"
 			]
 		}
 	}
